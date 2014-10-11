@@ -1,0 +1,50 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "Person"
+        ],
+        "name": "MyApp",
+        "stores": [
+            "Persons"
+        ],
+        "views": [
+            "Persons",
+            "MyViewport"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "Ext.widget('personswindow', {",
+                    "    autoShow: true,",
+                    "    width: 400,",
+                    "    height: 400,",
+                    "    constrain: true,",
+                    "    renderTo: Ext.ComponentQuery.query('#main')[0].getEl()",
+                    "});",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "name": "launch",
+            "designerId": "00c03324-acdb-47af-9b0d-37912bc999c3"
+        }
+    ]
+}

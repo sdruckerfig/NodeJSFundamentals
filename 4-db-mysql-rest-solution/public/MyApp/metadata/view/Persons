@@ -1,0 +1,244 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "personswindow",
+        "designer|userClassName": "Persons",
+        "height": 250,
+        "layout": "fit",
+        "title": "Users Editor",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "4ebef122-e532-41d6-abd0-b8d0097d798f",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "store": "Persons",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel",
+            "designerId": "daabe43c-2a8f-4197-9b58-10820ed43f5f",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "firstName",
+                        "flex": 1,
+                        "text": "First Name"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "c529b4c3-eb0c-4512-9110-b103664027e4",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTextField",
+                            "designerId": "5bbf09d4-d11e-4e89-8bd6-481daacd57ec"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "lastName",
+                        "flex": 1,
+                        "text": "Last Name"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "4d209be7-556d-4149-a961-ff93bb81add3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTextField1",
+                            "designerId": "37b03e1e-1bf2-4f3d-8d3b-c9aa0861eeff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.RowEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": "Ext.grid.plugin.RowEditing",
+                    "name": "MyRowEditingPlugin",
+                    "designerId": "3fb866e6-e4ae-4433-8fe4-4fd61fec085b"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridpanelSelect",
+                        "implHandler": [
+                            "if (record) {",
+                            "    ",
+                            "    this.down('#btnDelete').enable();",
+                            "} else {",
+                            "     this.down('#btnDelete').disable();",
+                            "}"
+                        ],
+                        "name": "select",
+                        "scope": "me"
+                    },
+                    "name": "onGridpanelSelect",
+                    "designerId": "70a6d65c-ccef-4fa4-82b9-02c8053abf49"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "AddNew",
+                "type": "plus"
+            },
+            "name": "MyTool",
+            "designerId": "d582047e-68d4-4be5-9d71-167f5dd163af",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "event",
+                            "toolEl",
+                            "owner",
+                            "tool"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "var grid = tool.up('window').down('grid');",
+                            "grid.getStore().add({});"
+                        ]
+                    },
+                    "name": "handler",
+                    "designerId": "b8b3eb01-6f66-493e-b204-ac7018f439b6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disabled": true,
+                "itemId": "btnDelete",
+                "type": "minus"
+            },
+            "name": "MyTool1",
+            "designerId": "f91f01e5-b418-4ef6-802f-30c3cd57a0b0",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "event",
+                            "toolEl",
+                            "owner",
+                            "tool"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "",
+                            "var grid = tool.up('window').down('grid');",
+                            "var rec = grid.getSelectionModel().getSelection();",
+                            "grid.getStore().remove(rec);",
+                            "grid.getStore().sync();"
+                        ]
+                    },
+                    "name": "handler",
+                    "designerId": "48308d1f-ab3c-4f9c-8271-a4197e9ccbb3"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "refresh",
+                "type": "refresh"
+            },
+            "name": "MyTool2",
+            "designerId": "40ba5b28-2af4-4272-b6dc-2db2434e2890",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "event",
+                            "toolEl",
+                            "owner",
+                            "tool"
+                        ],
+                        "fn": "handler",
+                        "implHandler": [
+                            "tool.up('window').down('grid').getStore().load();"
+                        ]
+                    },
+                    "name": "handler",
+                    "designerId": "b67ac035-44dc-41d6-8196-734d5a74a17d"
+                }
+            ]
+        }
+    ]
+}

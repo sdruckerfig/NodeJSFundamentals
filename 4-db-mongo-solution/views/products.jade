@@ -1,0 +1,40 @@
+extends layout
+
+block content
+
+  - var isEmptyObject = function (obj) {
+  -   var name;
+  -   for (name in obj) {
+  -     return false;
+  -   }
+  -   return true;
+  -}
+
+  h1= title
+
+  - if (isEmptyObject(errors) == false)
+    p.errorMessage= "The following errors occurred:"
+    ul  
+      - each error in errors
+        li= error.msg
+
+  form(method="POST", action="/products" style='margin-bottom: 10px')
+    label(for="name") Filter by Title: 
+    input(type="text" name="productTitle" value=productTitle)
+    input(type="submit")
+
+  - if (rows > 0)
+    table(border=1)
+      thead
+        tr
+          th Title
+          th Description
+          th Unit Price
+      tbody
+        - each item in products
+          tr
+            td= item.title
+            td= item.description
+            td(align="right") #{numeral(item.unitPrice).format('0.00')}
+
+  

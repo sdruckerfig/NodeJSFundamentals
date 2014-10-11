@@ -1,0 +1,65 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "border"
+    },
+    "name": "MyViewport",
+    "designerId": "5928bfd2-058b-4be5-bc86-b8090e95a379",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 27,
+                "layout|region": "north",
+                "style": [
+                    "{background-color: silver}"
+                ]
+            },
+            "name": "MyToolbar",
+            "designerId": "2ad778f4-7bca-4723-bf09-97fa71058e28",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.TextItem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "CodeStars Summit Ext JS + Node.js REST Example"
+                    },
+                    "name": "MyTextItem",
+                    "designerId": "a57abd7d-0458-4bf1-ab1f-0dc31bc1ab65"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "main",
+                "layout|region": "center",
+                "title": ""
+            },
+            "name": "MyPanel",
+            "designerId": "8377b17c-b14f-4ac1-91d7-833dbf0a4d93"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+
+  - var isEmptyObject = function (obj) {
+  -   var name;
+  -   for (name in obj) {
+  -     return false;
+  -   }
+  -   return true;
+  -}
+
+  h1= title
+
+  - if (isEmptyObject(errors) == false)
+    p.errorMessage= "The following errors occurred:"
+    ul  
+      - each error in errors
+        li= error.msg
+
+  form(method="POST", action="/users" style='margin-bottom: 10px')
+    label(for="name") Filter by Last Name: 
+    input(type="text" name="lastName" value=lastName)
+    input(type="submit")
+
+  - if (rows > 0)
+    table(border=1)
+      thead
+        tr
+          th First Name
+          th Last Name
+      tbody
+        - each item in users
+          tr
+            td= item.value.firstName
+            td= item.value.lastName
+
+  

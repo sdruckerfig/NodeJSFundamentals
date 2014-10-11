@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  table
+    thead
+      tr
+        th Quantity
+        th Description
+        th Sale Price
+    tbody
+      - each item in rows
+        tr
+          td= item.qty
+          td (style='width: '+(100/2)+'%') = item.description
+          td= item.salePrice
+

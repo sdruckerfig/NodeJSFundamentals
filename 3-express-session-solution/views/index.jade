@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	#container
+		#logo
+			img(src='images/logo.png')
+		#display
+			form(method='post')
+				br
+				| Username
+				input(type='text', name='username')
+				input(type='submit', value='Log In')

@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>CryptoNode</title>
+	</head>
+	<body>
+
+
+	<form>
+		<fieldset>
+			<legend>Get Encrypted File</legend>
+			<p>
+				File Name<br/>
+				<input id="fileName" type="text">
+				<button id="getFileButton">Get File</button>
+			</p>
+			<textarea id="encryptedTextDisplay" cols="100" rows="10" readonly></textarea>
+		</fieldset>
+	</form>	
+
+	<form>
+		<fieldset>
+			<legend>Decrypt File</legend>
+			<p>
+				Password<br/>
+				<input id="passwordField" type="text">
+				<button id="decryptButton">Decrypt</button>
+			</p>
+			<textarea id="decryptedTextDisplay" cols="100" rows="10"></textarea>
+		</fieldset>
+	</form>	
+
+	</body>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="sjcl/sjcl.js"></script>	
+	<script type="text/javascript" src="js/script.js"></script>
+
+</html>
